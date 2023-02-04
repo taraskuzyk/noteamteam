@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+
+#reading csv file into a pandas dataframe
+
+calgary_snow = pd.read_csv("Snow_clearing_lines.csv")
+
+#plotting dataframe in matplotlib
+
+calgary_snow.plot(kind = 'bar', x = 'LOCN_ON', y = 'STEP_COUNT', color = 'blue', legend = None)
+plt.title('Number of Steps by Calgary Snow Clearing Lines over 20 Steps')
+plt.xlabel("Snow Clearing Line")
+plt.ylabel("Length of clearing line (Steps)")
+plt.show()
