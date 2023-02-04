@@ -25,7 +25,7 @@
 					></l-tile-layer>
 					<l-control-layers />
 
-					<l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]" draggable>
+					<l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]">
 						<l-popup>
 							{{ project.point }} Points
 							<br />
