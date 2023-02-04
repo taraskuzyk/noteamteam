@@ -17,26 +17,19 @@
 			</ion-text>
 
 			<div style="height:500px; width:100%">
-				<l-map ref="map" :zoom="5" :center="[47.41322, -1.219482]">
+				<l-map ref="map" :zoom="5" :center="this.center">
 					<l-tile-layer
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						layer-type="base"
 						name="OpenStreetMap"
 					></l-tile-layer>
 					<l-control-layers />
-					<l-marker :lat-lng="[0, 0]" draggable @moveend="log('moveend')">
-						<l-tooltip>
-							lol
-						</l-tooltip>
-					</l-marker>
 
-					<l-marker :lat-lng="[47.41322, -1.219482]">
-						<l-icon icon-url="https://placekitten.com/25/40" :icon-size="[25, 40]" />
-					</l-marker>
-
-					<l-marker :lat-lng="[50, 50]" draggable @moveend="log('moveend')">
+					<l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]" draggable>
 						<l-popup>
-							lol
+							{{ project.point }} Points
+							<br />
+							<a href="#">Link</a>
 						</l-popup>
 					</l-marker>
 				</l-map>
@@ -45,13 +38,45 @@
 	</ion-page>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText} from "@ionic/vue";
-import ExploreContainer from "@/components/ExploreContainer.vue";
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LControlLayers, LMarker, LTooltip, LIcon, LPopup } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer, LControlLayers, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
 
-
+export default {
+	components: {
+		IonContent,
+		IonHeader,
+		IonPage,
+		IonTitle,
+		IonToolbar,
+		IonText,
+		LMap,
+		LTileLayer,
+		LControlLayers,
+		LMarker,
+		LPopup,
+	},
+	data() {
+		return {
+			center: [47.41322, -1.219482],
+			projects: [],
+		}
+	},
+	methods: {
+		fetchProjects() {
+			this.projects.push({
+				id: 1,
+				lat: 47.41322,
+				long: -1.219482,
+				point: 5,
+			});
+		},
+	},
+	created() {
+		this.fetchProjects();
+	}
+}
 </script>
 
 
