@@ -8,3 +8,18 @@ export interface Project {
 	beforeImage: string,
 	afterImage: string
 }
+
+
+export interface User {
+	id: number,
+	name: string,
+	email: string,
+	score: number,
+	community: string,
+}
+
+export interface Assignment {
+	projectId: number,
+	userId: number,
+	dueBy: Date
+}
