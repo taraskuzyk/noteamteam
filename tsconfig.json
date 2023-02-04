@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+  "qcompilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "strict": true,

@@ -19,7 +19,7 @@
 
       <ion-card-content>
         <ion-list>
-          <ion-item v-for="(user, index) in items" :key="index">
+          <ion-item v-for="(user, index) in users" :key="index">
             <ion-avatar slot="start">
               <img :src="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
             </ion-avatar>
@@ -38,21 +38,12 @@
   </ion-page>
 </template>
 
-<script lang="ts">
-import {
-  IonContent,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
-  IonList,
-  IonItem,
-  IonAvatar,
-  IonLabel,
-  IonInfiniteCustomEvent,
-} from '@ionic/vue';
-import { defineComponent, reactive } from 'vue';
+<script lang="ts" setup>
+  import {IonHeader, IonPage, IonTitle, IonToolbar} from "@ionic/vue";
+</script>
 
-export default defineComponent({
-  components: {
+<script lang="ts">
+  import {
     IonContent,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
@@ -60,38 +51,59 @@ export default defineComponent({
     IonItem,
     IonAvatar,
     IonLabel,
-  },
-  setup() {
-    const items = reactive([]);
+    InfiniteScrollCustomEvent,
+  } from '@ionic/vue';
+  import { defineComponent, reactive } from 'vue';
 
-    const getItems = () => {
-      const leaderboard = fetchLeaderboard();
-      for (let i = 0; i < leaderboard.length; i++) {
-        const user = leaderboard[i]
 
-        items.push(user);
+  interface User {
+    rank: number;
+    username: string;
+    points: number;
+  }
+
+  export default defineComponent({
+    components: {
+      IonContent,
+      IonInfiniteScroll,
+      IonInfiniteScrollContent,
+      IonList,
+      IonItem,
+      IonAvatar,
+      IonLabel,
+
+    },
+    setup() {
+      const users: User[] = reactive([]);
+
+      const getItems = () => {
+        const leaderboard = fetchLeaderboard();
+        for (let i = 0; i < leaderboard.length; i++) {
+          const user = leaderboard[i]
+
+          users.push(user);
+        }
+      };
+
+      const fetchLeaderboard = () => {
+        return [
+          {rank: 1, username: "Taras", points: 69420},
+          {rank: 2, username: "Eshan", points: 42069},
+          {rank: 3, username: "Nova", points: 13337},
+          {rank: 4, username: "Andres", points: 1337}
+        ]
       }
-    };
 
-    const fetchLeaderboard = () => {
-      return [
-        {"rank": 1, "username": "Taras", "points": 69420},
-        {"rank": 2, "username": "Eshan", "points": 42069},
-        {"rank": 3, "username": "Nova", "points": 13337},
-        {"rank": 4, "username": "Andres", "points": 1337}
-      ]
-    }
+      const ionInfinite = (ev: InfiniteScrollCustomEvent) => {
+        getItems();
+        setTimeout(() => ev.target.complete(), 500);
+      };
 
-    const ionInfinite = (ev: IonInfiniteCustomEvent) => {
       getItems();
-      setTimeout(() => ev.target.complete(), 500);
-    };
 
-    getItems();
-
-    return { ionInfinite, items };
-  },
-});
+      return { ionInfinite, users: users };
+    },
+  });
 </script>
 
 
