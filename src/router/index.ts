@@ -1,6 +1,9 @@
 import {createRouter, createWebHistory} from "@ionic/vue-router";
 import {RouteRecordRaw} from "vue-router";
 import TabsPage from "../views/TabsPage.vue"
+import CleanRequestPage from "../views/CleanRequestPage.vue"
+import SubmitTaskPage from "../views/SubmitTaskPage.vue"
+import TaskDetailsPage from "../views/TaskDetailsPage.vue"
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -26,9 +29,21 @@ const routes: Array<RouteRecordRaw> = [
 			{
 				path: "profile",
 				component: () => import("@/views/ProfilePage.vue")
+			},
+			{
+				path: "request-clean",
+				component: () => import("@/views/CleanRequestPage.vue")
+			},
+			{
+				path: "submit-task",
+				component: () => import("@/views/SubmitTaskPage.vue")
+			},
+			{
+				path: "task-details",
+				component: () => import("@/views/TaskDetailsPage.vue")
 			}
 		]
-	}
+	},
 ]
 
 const router = createRouter({

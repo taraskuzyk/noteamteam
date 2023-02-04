@@ -35,7 +35,7 @@
 				</l-map>
 			</div>
 
-			<ion-button expand="block ion-margin-top">Request snow cleaning</ion-button>
+			<ion-button href="tabs/request-clean" expand="block" class="ion-margin-top">Request snow cleaning</ion-button>
 		</ion-content>
 	</ion-page>
 </template>
