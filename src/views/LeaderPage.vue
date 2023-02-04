@@ -38,11 +38,12 @@
 	</ion-page>
 </template>
 
-<script lang="ts" setup>
-import {IonHeader, IonPage, IonTitle, IonToolbar} from "@ionic/vue";</script>
-
 <script lang="ts">
 import {
+	IonHeader,
+	IonPage,
+	IonTitle,
+	IonToolbar,
 	IonCardContent,
 	IonCardSubtitle,
 	IonCardHeader,
