@@ -13,9 +13,9 @@
 					<ion-label>Leaderboard</ion-label>
 				</ion-tab-button>
 
-				<ion-tab-button tab="tab3" href="/tabs/tab3">
-					<ion-icon :icon="square"/>
-					<ion-label>Tab 3</ion-label>
+				<ion-tab-button tab="profile" href="/tabs/profile">
+					<ion-icon :icon="person"/>
+					<ion-label>Profile</ion-label>
 				</ion-tab-button>
 			</ion-tab-bar>
 		</ion-tabs>
@@ -24,4 +24,4 @@
 
 <script setup lang="ts">
 import {IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs} from "@ionic/vue";
-import {home, barChart, square} from "ionicons/icons";</script>
+import {home, barChart, person} from "ionicons/icons";</script>
