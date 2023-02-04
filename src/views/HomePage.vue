@@ -17,7 +17,7 @@
 			</ion-text>
 
 			<div style="height:500px; width:100%">
-				<l-map ref="map" :zoom="5" :center="this.center">
+				<l-map ref="map" :zoom="10" :center="this.center">
 					<l-tile-layer
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						layer-type="base"
