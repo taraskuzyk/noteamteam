@@ -23,17 +23,17 @@
 						layer-type="base"
 						name="OpenStreetMap"
 					></l-tile-layer>
-					<l-control-layers />
+					<l-control-layers/>
 
-          <l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]">
-            <l-popup>
-              {{ project.points }} Points
-              <br/>
-              <ion-button v-on:click="takeProject(project)">Link</ion-button>
-            </l-popup>
-          </l-marker>
-        </l-map>
-      </div>
+					<l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]">
+						<l-popup>
+							{{ project.points }} Points
+							<br/>
+							<ion-button v-on:click="takeProject(project)">Link</ion-button>
+						</l-popup>
+					</l-marker>
+				</l-map>
+			</div>
 
 			<ion-button expand="block ion-margin-top">Request snow cleaning</ion-button>
 		</ion-content>
@@ -47,60 +47,61 @@ import {LMap, LTileLayer, LControlLayers, LMarker, LPopup} from "@vue-leaflet/vu
 
 
 interface Project {
-  id: number,
-  lat: number,
-  long: number,
-  creator_id: number,
-  points: number,
-  isCompleted: number,
-  beforeImage: string,
-  afterImage: string
+	id: number,
+	lat: number,
+	long: number,
+	creator_id: number,
+	points: number,
+	isCompleted: number,
+	beforeImage: string,
+	afterImage: string
 }
+
 export default {
-  components: {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonText,
-    IonButton,
-    LMap,
-    LTileLayer,
-    LControlLayers,
-    LMarker,
-    LPopup,
-  },
-  data() {
-    return {
-      center: [51.0447, -114.0719],
-      projects: [],
-    }
-  },
-  methods: {
-    fetchProjects() {
-      this.projects.push(
-          {
-            id: 1,
-            lat: 51.0490,
-            long: -114.0800,
-            points: 5,
-          },
-          {
-            id: 2,
-            points: 10,
-            lat: 51.0447,
-            long: -114.0719,
-          }
-      );
-    },
-    takeProject(project: Project) {
-      alert(project)
-    }
-  },
-  created() {
-    this.fetchProjects();
-  }
+	components: {
+		IonContent,
+		IonHeader,
+		IonPage,
+		IonTitle,
+		IonToolbar,
+		IonText,
+		IonButton,
+		LMap,
+		LTileLayer,
+		LControlLayers,
+		LMarker,
+		LPopup,
+	},
+	data() {
+		return {
+			center: [51.0447, -114.0719],
+			projects: [],
+		}
+	},
+	methods: {
+		fetchProjects() {
+			this.projects.push(
+				{
+					id: 1,
+					lat: 51.0490,
+					long: -114.0800,
+					points: 5,
+				},
+				{
+					id: 2,
+					points: 10,
+					lat: 51.0447,
+					long: -114.0719,
+				}
+			);
+		},
+		takeProject(project: Project) {
+			alert(project)
+		}
+	},
+	created() {
+		this.fetchProjects();
+	}
 }
 </script>
 
