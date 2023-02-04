@@ -68,6 +68,10 @@ interface User {
 
 export default defineComponent({
 	components: {
+		IonHeader,
+		IonPage,
+		IonTitle,
+		IonToolbar,
 		IonCardContent,
 		IonCardTitle,
 		IonCardHeader,
