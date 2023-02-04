@@ -13,7 +13,7 @@
 			</ion-header>
 
 			<ion-card-header>
-				<ion-card-title>Leaderboard</ion-card-title>
+				<!--<ion-card-title>Leaderboard</ion-card-title>-->
 				<ion-card-subtitle>Top Snow Angels in Calgary!</ion-card-subtitle>
 			</ion-card-header>
 
@@ -23,7 +23,7 @@
 						<ion-avatar slot="start">
 							<img :src="'https://picsum.photos/80/80?random=' + index" alt="avatar"/>
 						</ion-avatar>
-						<ion-label>{{ user.rank }}. {{ user.username }}</ion-label>
+						<ion-label>{{ index + 1 }}. {{ user.username }}</ion-label>
 						<ion-label>Points: {{ user.points }}</ion-label>
 
 					</ion-item>
@@ -47,7 +47,7 @@ import {
 	IonCardContent,
 	IonCardSubtitle,
 	IonCardHeader,
-	IonCardTitle,
+	//IonCardTitle,
 	IonContent,
 	IonInfiniteScroll,
 	IonInfiniteScrollContent,
@@ -73,7 +73,7 @@ export default defineComponent({
 		IonTitle,
 		IonToolbar,
 		IonCardContent,
-		IonCardTitle,
+		//IonCardTitle,
 		IonCardHeader,
 		IonCardSubtitle,
 		IonContent,

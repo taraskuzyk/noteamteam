@@ -34,12 +34,14 @@
 					</l-marker>
 				</l-map>
 			</div>
+
+			<ion-button expand="block ion-margin-top">Request snow cleaning</ion-button>
 		</ion-content>
 	</ion-page>
 </template>
 
 <script lang="ts">
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText} from "@ionic/vue";
+import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText, IonButton} from "@ionic/vue";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LControlLayers, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
 
@@ -51,6 +53,7 @@ export default {
 		IonTitle,
 		IonToolbar,
 		IonText,
+		IonButton,
 		LMap,
 		LTileLayer,
 		LControlLayers,
