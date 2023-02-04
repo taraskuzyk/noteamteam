@@ -22,7 +22,7 @@
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						layer-type="base"
 						name="OpenStreetMap"
-					></l-tile-layer>
+					/>
 					<l-control-layers/>
 
 					<l-marker v-for="project in projects" :key="project.id" :lat-lng="[project.lat, project.long]">
@@ -41,21 +41,11 @@
 </template>
 
 <script lang="ts">
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText, IonButton} from "@ionic/vue";
+import {IonButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar} from "@ionic/vue";
 import "leaflet/dist/leaflet.css";
-import {LMap, LTileLayer, LControlLayers, LMarker, LPopup} from "@vue-leaflet/vue-leaflet";
+import {LControlLayers, LMap, LMarker, LPopup, LTileLayer} from "@vue-leaflet/vue-leaflet";
+import {Project} from "../interfaces";
 
-
-interface Project {
-	id: number,
-	lat: number,
-	long: number,
-	creator_id: number,
-	points: number,
-	isCompleted: number,
-	beforeImage: string,
-	afterImage: string
-}
 
 export default {
 	components: {
